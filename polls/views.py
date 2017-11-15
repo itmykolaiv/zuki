@@ -4,6 +4,11 @@ from django.db import connections
 from django.template.loader import render_to_string
 from polls.models import Libruary
 from django.core.paginator import Paginator
+from django.shortcuts import render
+
+@csrf_exempt
+def home(request):
+    return render(request, 'home.html', {})
 
 @csrf_exempt
 def index(request):
