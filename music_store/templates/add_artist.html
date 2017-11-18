@@ -1,0 +1,53 @@
+{% include 'header.html' %}
+<div class="row">
+    <div class="column small-12">
+        <h1>Add Track</h1>
+        {% if artist.name %}
+        <p class="success label">Artist: {{artist.name}} was added!</p>
+        {% endif %}
+        <form action="/artists/add" method="post">
+            <table width='100%'>
+                <tr>
+                    <td width='115'>Name:</td>
+                    <td><input type="text" name="name" /></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><textarea id="description" name="description" ></textarea></td>
+                </tr>
+            </table>
+            <button class="button">Submit</button>
+        </form>
+    </div>
+    
+</div>
+<script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
+<script>
+    var editor = ClassicEditor
+        .create( document.querySelector( '#description' ), {
+            toolbar: [ 'source', 'headings', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote','link' ],
+            heading: {
+                options: [
+                    { modelElement: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { modelElement: 'heading1', viewElement: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { modelElement: 'heading2', viewElement: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                ]
+            },
+            image: {
+                toolbar: [
+                    'image',
+                    'imageStyleSide',
+                    '|',
+                    'imageTextAlternative'
+                ]
+            }
+        } )
+        .then( editor => {
+            console.log( editor );
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+{% include 'footer.html' %}
+

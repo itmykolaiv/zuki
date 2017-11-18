@@ -1,0 +1,74 @@
+{% include 'header.html' %}
+<div class="parallax home-img">
+    <div class="row">
+        <div class="column medium-12 text-center">
+            <h1>Find track you like</h1>
+            <p>1000+ tracks ower the world</p>
+            <a class="button">Learn More</a>
+        </div>
+    </div>
+
+</div>
+<div style="clear:both"></div>
+<div class="row-2 row" data-equalizer data-equalize-on="medium">
+    <div class="column medium-6 section-left" data-equalizer-watch>
+        
+            <h2>Fatboy Slim</h2>
+            <p>
+                Recording under the name Fatboy Slim, 
+                Norman Cook is an English disc jockey, 
+                musician, and record producer who achieved 
+                mainstream alternative success in America 
+                in the latter half of 1997 with his release 
+                Better Living Through Chemistry. 
+                The title was a nod to his friends, 
+                fellow “big beat” subgenre remixers the Chemical Brothers
+            </p>
+            <a class="button">Learn More</a>
+        
+    </div>
+    <div class="column medium-6 second-img section-right" >
+    </div>
+    <div style="clear:both"></div>
+</div>
+<div class="parallax home-img-2">
+        <div class="row">
+            <div class="column medium-12 text-center">
+                <h1>Find artist info</h1>
+                <p>allways interesting live facts</p>
+                <a class="button">Learn More</a>
+            </div>
+        </div>
+    
+    </div>
+<div class="row-3">
+    <div class="row ">
+        <div class="column medium-6 text-left">
+            <img src="/static/music_hifi_headphones_sound_audio_dj_studio_listen_to_music-1195170.jpg" />
+            <h3>Oscar Wilde</h3>
+            <p>Paradoxically though it may seem, 
+                it is none the less true that life imitates art far more 
+                than art imitates life.</p>
+        </div>
+        <div class="column medium-6 text-left">
+            <img src="/static/unsplash-headphone.jpg" />
+            <h3>Friedrich von Schiller</h3>
+            <p>No doubt the artist is the child of his time, 
+                but woe to him if he is also its disciple, 
+                or even its favorite.</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="column medium-12 text-center">
+        <h1>Random tracks</h1>
+    </div>
+</div>
+<div class="row">
+    {% for row in rows %}
+        <div class="column medium-4">
+            {% autoescape off %} {{ row.embed }} {% endautoescape %}
+        </div>
+    {% endfor %}
+</div>
+{% include 'footer.html' %}

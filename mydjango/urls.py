@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include,url
 from django.contrib import admin
-from polls import views
+from music_store import view_home
 
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
-    url(r'^tracks/', include('polls.urls')),
+    url(r'^$', view_home.index),
+    url(r'^tracks/', include('music_store.urls')),
+    url(r'^artists/', include('music_store.artist_urls')),
     url(r'^admin/', admin.site.urls),
 ]

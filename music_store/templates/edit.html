@@ -1,0 +1,70 @@
+{% include 'header.html' %}
+<div class="row">
+    <div class="column small-12">
+        <h1>Edit Track</h1>
+
+        <form action="/tracks/edit?id={{ row.id }}" method="post">
+            <div class="row">
+
+                <div class="column small-12 medium-2">
+                    Track name:
+                </div>
+                <div class="column small-12 medium-10">
+                    <input type="text" name="track_name" value="{{ row.track_name }}" />
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="column small-12 medium-2">
+                    Artist:
+                </div>
+                <div class="column small-12 medium-10">
+                    <select class="artist form-control" style="width:500px" name="artist">
+                        <option>{{ row.artist }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="column small-12 medium-2">
+                    Embed:
+                </div>
+                <div class="column small-12 medium-10">
+                    <input type="text" name="embed" value="{{ row.embed }}" />
+                </div>
+            </div>
+            <div class="row">
+                {% autoescape off %} {{ row.embed }} {% endautoescape %}
+            </div>
+
+            <div class="row">
+                <button class="button">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+{% include 'footer.html' %}
+
+<script type="text/javascript">
+
+    $('.artist').select2({
+        placeholder: 'Select an artist',
+        minimumInputLength: 2,
+        theme: "foundation",
+        width: '100%',
+        ajax: {
+            url: '/artists/json',
+            dataType: 'json',
+            delay: 250,
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
+
+</script>

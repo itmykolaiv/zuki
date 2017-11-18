@@ -1,39 +1,182 @@
-.top-bar, .top-bar ul {
-    background-color: #f0597d;
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+body {
+    
+    background-color: #242121;
+    background-position: top center;
+    background-repeat: no-repeat; 
+    color: white;
+}
+table {
+    border-collapse: collapse;
+}
+table tbody, table tfoot, table thead {
+    border: 0px solid #f1f1f1;
+    color: white;
+}
+
+table tbody tr:nth-child(2n) {
+    background-color: rgba(255,255,255,0.1);
+}
+
+table tbody, table tfoot, table thead {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.top-bar a:hover{
+    border-bottom: 2px solid white;
+}
+
+table a:hover {
+    color: #f0597d;
+}
+
+table a {
+    color: #f0597d;
+    text-decoration: none;
 }
 
 .top-bar a {
-    color: #fff;
+    border-bottom: 2px solid transparent;
 }
 
-.top-bar .dropdown.menu>li.is-dropdown-submenu-parent>a:after {
-    border-color: #ffffff transparent transparent;
+.top-bar, .top-bar ul ul {
+    
+    background-color: #f0597d;
 }
 
-.top-bar .is-dropdown-submenu {
+.top-bar ul {
+    background-color: transparent;
+}
+
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+    border-color: #fff transparent transparent;
+}
+
+table, h1, .pagination a, .top-bar a {
+    color: white;
+}
+
+footer a {
+    color: wheat;
+}
+
+footer span {
+    font-size: 12px;
+}
+
+.pagination a:hover {
+    color: black;
+}
+.top-bar ul ul, footer {
+    background-color: #f0597d;
+}
+
+.is-dropdown-submenu {
     border: 0px solid #cacaca;
+    z-index: 999;
 }
 
-.top-bar {
-    padding-bottom: 35px;
-    padding-top: 35px;
+
+.select2-container {
+    margin: 0 0 1rem;
 }
 
-.logo {
+h1 {
+    font-family: 'Pacifico', cursive;
+    margin-top: 24pt;
+}
+
+.top-bar .logo {
+    font-family: 'Pacifico', cursive;
     font-size: 24px;
     padding: 0;
 }
 
-.parallax { 
-    /* The image used */
-    background-image: url("/static/imagine-dragons-1.jpg");
+.logo img  {
+    margin-top: -10px;
+}
 
-    /* Set a specific height */
-    height: 500px; 
+table .button {
+    margin: 0;
+}
 
-    /* Create the parallax scrolling effect */
+.login-info {
+    padding-left: 10px;
+}
+.row.embed {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.top-bar {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.view-img {
+    background-image: url(/static/57b36e811800001800bcb291.jpg);
+}
+.home-img-2 {
+    background-image: url(/static/DANCE.jpg);
+}
+
+.home-img {
+    background-image: url(/static/music-1.jpg);
+}
+
+.parallax div{
+    position: relative;
+}
+.parallax {
+    position: relative;
+    height: 250px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 1;
+}
+.parallax::after { 
+    height: 100%;
+    width: 100%; 
+    position: absolute;
+    background-color: #f05981;
+    opacity: 0.3;
+    top:0;
+    left: 0;
+    content: "";
+    z-index: -1;
+}
+
+.section-left .float-right {
+    width: 80%;
+}
+
+.section-right {
+    background-image: url(/static/maxresdefault.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 300px;
+    position: relative;
+}
+
+.row-2 {
+    position: relative;
+}
+
+.row-3, .row-2 {
+    background-color: #242121;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.button {
+    background-color: #f0597d;
+    border-radius: 20px;
+    border: 1px solid #f0597d;
+}
+
+.button:hover {
+    background-color: transparent;
+    border-radius: 20px;
 }

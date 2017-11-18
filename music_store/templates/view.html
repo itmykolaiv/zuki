@@ -1,0 +1,41 @@
+{% include 'header.html' %}
+<div class="parallax view-img">
+    <div class="row">
+        <div class="column small-12">
+                <div class="row">
+                    <div class="column medium-6">
+                        <h1>{{ row.artist }}</h1>
+                        <h3>{{ row.track_name }}</h3>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="row embed">
+        <div class="column medium-12">  
+                {% autoescape off %} {{ row.embed }} {% endautoescape %}     
+        </div>
+</div>
+{% include 'footer.html' %}
+
+<script type="text/javascript">
+
+    $('.artist').select2({
+        placeholder: 'Select an artist',
+        minimumInputLength: 2,
+        theme: "foundation",
+        width: '100%',
+        ajax: {
+            url: '/artists/json',
+            dataType: 'json',
+            delay: 250,
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
+
+</script>

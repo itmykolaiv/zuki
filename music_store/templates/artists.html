@@ -1,0 +1,54 @@
+{% include 'header.html' %}
+<div class="row">
+    <div class="column small-12">
+        <h1>Artist List</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td width="170">Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for artist in artists %}
+                <tr>
+                    <td><a href="/artists/view?name={{ artist.name }}">{{ artist.name }}</a></td>
+                    <td>
+                        <a href="/artists/edit?id={{ artist.id }}" class="button">Edit</a>
+                        <a href="/artists/delete?id={{ artist.id }}" class="button alert">Remove</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if artists.has_other_pages %}
+            <ul class="pagination" role="navigation" aria-label="Pagination">
+                
+                {% if artists.has_previous %}
+                    <li>
+                        <a href="?page={{ artists.previous_page_number }}">
+                            Previous <span class="show-for-sr">page</span>
+                        </a>
+                    </li>
+                {% endif %}
+                
+                {% for i in artists.paginator.page_range %}
+                    {% if artists.number == i %}
+                    <li class="current">{{ i }}</li>
+                    {%else%}
+                    <li class=""><a href="?page={{ i }}" aria-label="Page {{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if artists.has_next %}
+                <li>
+                    <a href="?page={{ artists.next_page_number }}" aria-label="Next page">
+                        Next <span class="show-for-sr">page</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </div>
+</div>
+{% include 'footer.html' %}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Libruaries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="/static/select2-foundation-theme.min.css" rel="stylesheet" />
+    <link href="/static/style.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="row">
+            <div class="column medium-2 ">
+                
+                        <div class=" column small-6 logo">
+                            <a href="/">Zuki</a>
+                        </div>
+
+            </div>
+            <div class="column medium-3 ">
+
+                <ul class="menu">
+                    <li>
+                        <input type="search" placeholder="Search">
+                    </li>
+                    <li>
+                        <button type="button" class="button">Search</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="column medium-7 ">
+
+                <ul class="dropdown menu float-right" data-dropdown-menu>
+
+                    <li>
+                        <a href="#">Tracks</a>
+                        <ul class="menu vertical">
+                            <li>
+                                <a href="/tracks">List Tracks</a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li>
+                                <a href="/tracks/add">Add Track</a>
+                            </li>
+                            {% endif %}
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Artists</a>
+                        <ul class="menu vertical">
+                            <li>
+                                <a href="/artists">List Artists</a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li>
+                                <a href="/artists/add">Add Artist</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    <li class="login-info">
+                        {% if user.is_authenticated %}
+                        <span>Welcome, {{ user.username }}. Thanks for logging in.</span>
+                        {% else %}
+                        <span>Welcome, new user. Please
+                            <a href="/admin">log in</a>.</span>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
