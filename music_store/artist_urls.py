@@ -8,6 +8,7 @@ from . import view_remove_artist
 urlpatterns = [
     url(r'^$', view_artists.index, name='index'),
     url(r'^add$', view_add_artist.add, name='add'),
+    url(r'^delete$', view_add_artist.delete, name='delete'),
     url(r'^edit$', view_edit_artist.edit, name='edit'),
     url(r'^view$', view_edit_artist.view, name='edit'),
     url(r'^remove$', view_remove_artist.remove, name='remove'),

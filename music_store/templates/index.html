@@ -24,7 +24,7 @@
                     {% if user.is_authenticated %}
                     <td>
                         <a href="/tracks/edit?id={{ track.id }}" class="button">Edit</a>
-                        <a href="/tracks/edit?id={{ track.id }}" class="button alert">Remove</a>
+                        <a href="/tracks/delete?id={{ track.id }}" class="button alert">Remove</a>
                     </td>
                     {% endif %}
                 </tr>

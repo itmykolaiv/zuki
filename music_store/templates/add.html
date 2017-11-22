@@ -3,7 +3,7 @@
     <div class="column small-12">
         <h1>Add Track</h1>
         {% if row.track_name %}
-        <p class"alert-box success">Track was added</p>
+        <p class="success label">Track {{row.track_name}} was added!</p>
         {% endif %}
         <form action="/tracks/add" method="post">
             <div class="row">

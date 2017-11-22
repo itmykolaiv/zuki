@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.db import connections
 from django.template.loader import render_to_string
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from music_store.models import Libruary
 from django.core.paginator import Paginator
 
@@ -35,6 +35,17 @@ def add(request):
         #track['track_name'] + "', artist = '" + track['track_name'] + "'")
 
     result = render(request, 'add.html', track)
+    
+    return result
+
+@csrf_exempt
+def delete(request):
+    track = Libruary.objects.get(id=request.GET.get("id","0"))
+    if request.method == 'POST' and request.POST.get('confirm') == "1":
+        track = Libruary.objects.get(id=request.POST.get("id","0"))
+        track.delete()
+        return redirect("/tracks/")
+    result = render(request, 'delete.html', {'track':track})
     
     return result
 

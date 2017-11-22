@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+<div class="row">
+    <div class="column small-12">
+        <h1>Delete Track</h1>
+        {% if track.track_name %}
+        <p class="alert label">Are you sure to delete {{track.track_name}}?</p>
+        {% endif %}
+        <form action="/tracks/delete?id={{track.id}}" method="post">
+            <input type="hidden" name="id" value="{{track.id}}" />
+            <input type="hidden" name="confirm" value="1" />
+            <button class="button alert">Delete</button>
+            <a href="/tracks" class="button error">Cancel</a>
+        </form>
+    </div>
+    
+</div>
+{% include 'footer.html' %}
+

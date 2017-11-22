@@ -20,9 +20,43 @@
 </div>
 <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
 <script>
-    var editor = ClassicEditor
+    var editor;
+    var Adapter = function(loader){
+       
+        // Save Loader instance to update upload progress.
+        this.loader = loader;
+        var data = new FormData;
+        data.append("file", loader.file );  
+        this.upload = function(){
+            var upload = fetch('/ckeditor/upload', {
+                method: "POST",
+                body: data
+            }).then(function(response){
+                console.log(response);
+                return response.json();
+            });
+            return upload;
+        }
+        this.abort = function () {
+            // Reject promise returned from upload() method.
+            server.abortUpload();
+        }
+    };
+    ClassicEditor
         .create( document.querySelector( '#description' ), {
-            toolbar: [ 'source', 'headings', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote','link' ],
+            cloudServices: {
+                uploadUrl : "/ckeditor/upload"
+            },
+            toolbar: [ 
+                'headings',
+                'bold', 
+                'italic', 
+                'link',
+                'insertImage', 
+                'bulletedList', 
+                'numberedList', 
+                'blockQuote'
+            ],
             heading: {
                 options: [
                     { modelElement: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
@@ -39,8 +73,12 @@
                 ]
             }
         } )
-        .then( editor => {
-            console.log( editor );
+        .then( ed => {
+            editor = ed;
+            editor.plugins.get( 'FileRepository' ).createAdapter = function( loader ) {
+                return new Adapter( loader );
+            };
+            console.log( ed );
         } )
         .catch( error => {
             console.error( error );

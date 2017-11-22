@@ -6,11 +6,15 @@ from django.shortcuts import render
 from music_store.models import Libruary
 from django.core.paginator import Paginator
 from django.contrib.auth import authenticate
-
+from django.db.models import Q
 
 @csrf_exempt
 def index(request):
-    rows = Libruary.objects.all()
+    search = request.GET.get("q","")
+    if search != "":
+        rows = Libruary.objects.filter(Q(track_name__contains=search) | Q(artist__contains=search))
+    else:
+        rows = Libruary.objects.all()
 
     paginator = Paginator(rows, 2)
     # dictfetchall(cursor)

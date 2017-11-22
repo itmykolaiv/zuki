@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import include,url
 from django.contrib import admin
 from music_store import view_home
+from music_store import view_upload
 
 urlpatterns = [
     url(r'^$', view_home.index),
+    url(r'^ckeditor/upload', view_upload.index),
     url(r'^tracks/', include('music_store.urls')),
     url(r'^artists/', include('music_store.artist_urls')),
     url(r'^admin/', admin.site.urls),

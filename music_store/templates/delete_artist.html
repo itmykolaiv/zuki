@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+<div class="row">
+    <div class="column small-12">
+        <h1>Delete Artist</h1>
+        {% if artist.name %}
+        <p class="alert label">Are you sure to delete {{artist.name}}?</p>
+        {% endif %}
+        <form action="/artists/delete?id={{artist.id}}" method="post">
+            <input type="hidden" name="id" value="{{artist.id}}" />
+            <input type="hidden" name="confirm" value="1" />
+            <button class="button alert">Delete</button>
+            <a href="/artists" class="button error">Cancel</a>
+        </form>
+    </div>
+    
+</div>
+{% include 'footer.html' %}
+

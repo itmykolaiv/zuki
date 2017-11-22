@@ -29,10 +29,10 @@
 
                 <ul class="menu">
                     <li>
-                        <input type="search" placeholder="Search">
+                        <input id="search_str" type="search" placeholder="Search">
                     </li>
                     <li>
-                        <button type="button" class="button">Search</button>
+                        <button id="search_btn" type="button" class="button">Search</button>
                     </li>
                 </ul>
             </div>
@@ -67,15 +67,17 @@
                             {% endif %}
                         </ul>
                     </li>
-                    <li class="login-info">
-                        {% if user.is_authenticated %}
-                        <span>Welcome, {{ user.username }}. Thanks for logging in.</span>
-                        {% else %}
-                        <span>Welcome, new user. Please
-                            <a href="/admin">log in</a>.</span>
-                        {% endif %}
-                    </li>
+                    {% if not user.is_authenticated %}
+                    <li><a href="/admin">Log in</a></li>
+                    {% else %}
+                    <li><a href="/admin/logout/">Log out</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </div>
+    <script>
+        document.querySelector('#search_btn').addEventListener('click',function(){
+            window.location.href = '/tracks/?q=' + document.querySelector('#search_str').value;
+        })
+    </script>

@@ -56,7 +56,9 @@ table a {
 table, h1, .pagination a, .top-bar a {
     color: white;
 }
-
+footer {
+    margin-top: 20px; 
+}
 footer a {
     color: wheat;
 }
