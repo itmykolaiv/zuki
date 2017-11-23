@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'dbuzinov.pythonanywhere.com',
     '127.0.0.1',
-    'a9d9a999.ngrok.io'
+    'a9d9a999.ngrok.io',
+    'tranquil-inlet-42820.herokuapp.com'
 ]
 
 
