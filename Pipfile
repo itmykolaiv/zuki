@@ -3,7 +3,7 @@ url = "https://github.com/itmykolaiv/zuki.git"
 verify_ssl = true
 
 [packages]
-django = "1.9"
+django = "1.x"
 
 [requires]
 python_version = "3.6"
