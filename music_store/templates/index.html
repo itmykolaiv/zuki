@@ -2,13 +2,14 @@
 <div class="row">
     <div class="column small-12">
         <h1>Track List</h1>
+        <div class="overflow">
         <table>
             <thead>
                 <tr>
                     <th>Artist</th>
                     <th>Track</th>
-                    <th>Album</th>
-                    <th>Genre</th>
+                    <!--th>Album</th>
+                    <th->Genre</th-->
                     {% if user.is_authenticated %}
                     <th width="180">Actions</th>
                     {% endif %}
@@ -19,8 +20,9 @@
                 <tr>
                     <td><a href="/artists/view?name={{ track.artist }}">{{ track.artist }}</a></td>
                     <td><a href="/tracks/view?id={{ track.id }}">{{ track.track_name }}</a></td>
-                    <td>{{ track.album }}</td>
-                    <td>{{ track.genre }}</td>
+                    
+                    <!--td>{{ track.album }}</td>
+                    <td->{{ track.genre }}</td-->
                     {% if user.is_authenticated %}
                     <td>
                         <a href="/tracks/edit?id={{ track.id }}" class="button">Edit</a>
@@ -31,12 +33,13 @@
             {% endfor %}
             </tbody>
         </table>
+        </div>
         {% if track_rows.has_other_pages %}
             <ul class="pagination" role="navigation" aria-label="Pagination">
                 
                 {% if track_rows.has_previous %}
                     <li>
-                        <a href="?page={{ track_rows.previous_page_number }}">
+                        <a href="?page={{ track_rows.previous_page_number }}{% if q != '' %}&q={{q}}{% endif %}">
                             Previous <span class="show-for-sr">page</span>
                         </a>
                     </li>
@@ -46,12 +49,12 @@
                     {% if track_rows.number == i %}
                     <li class="current">{{ i }}</li>
                     {%else%}
-                    <li class=""><a href="?page={{ i }}" aria-label="Page {{ i }}">{{ i }}</a></li>
+                    <li class=""><a href="?page={{ i }}{% if q != '' %}&q={{q}}{% endif %}" aria-label="Page {{ i }}">{{ i }}</a></li>
                     {% endif %}
                 {% endfor %}
                 {% if track_rows.has_next %}
                 <li>
-                    <a href="?page={{ track_rows.next_page_number }}" aria-label="Next page">
+                    <a href="?page={{ track_rows.next_page_number }}{% if q != '' %}&q={{q}}{% endif %}" aria-label="Next page">
                         Next <span class="show-for-sr">page</span>
                     </a>
                 </li>

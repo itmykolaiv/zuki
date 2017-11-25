@@ -16,7 +16,7 @@ def index(request):
     else:
         rows = Libruary.objects.all()
 
-    paginator = Paginator(rows, 2)
+    paginator = Paginator(rows, 10)
     # dictfetchall(cursor)
     page = request.GET.get('page', 1)
     p_rows = paginator.page(page)
@@ -26,7 +26,8 @@ def index(request):
         'my_string': 'Dima',
         'track_rows': p_rows,
         'auth': True, 
-        'user1': request.user
+        'user1': request.user,
+        'q' : search
     } )
     
     return result

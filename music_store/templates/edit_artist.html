@@ -3,17 +3,27 @@
     <div class="column small-12">
         <h1>Edit Track</h1>
         <form action="/artists/edit?id={{artist.id}}" method="post">
-            <table width='100%'>
-                <tr>
-                    <td width='115'>Name:</td>
-                    <td><input type="text" name="name" value="{{artist.name}}" /></td>
-                </tr>
-                <tr>
-                    <td>Description:</td>
-                    <td><textarea id="description" name="description" >{{artist.description}}</textarea></td>
-                </tr>
-            </table>
-            <button class="button">Submit</button>
+            <div class="row">
+                
+                <div class="column small-12 medium-2"> 
+                    Name:
+                </div>
+                <div class="column small-12 medium-10">    
+                    <input type="text" name="name" value="{{artist.name}}" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="column small-12 medium-2"> 
+                    Description:
+                </div>
+                <div class="column small-12 medium-10">   
+                    <textarea id="description" name="description" >{{artist.description}}</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <button class="button">Submit</button>
+            </div>
+                
         </form>
     </div>
     
@@ -66,8 +76,10 @@
             },
             image: {
                 toolbar: [
-                    'image',
+                    'imageStyleFull',
                     'imageStyleSide',
+                    'imageStyleAlignLeft',
+                    'imageStyleAlignRight',
                     '|',
                     'imageTextAlternative'
                 ]

@@ -2,26 +2,27 @@
 <div class="row">
     <div class="column small-12">
         <h1>Artist List</h1>
-
-        <table>
-            <thead>
-                <tr>
-                    <td>Name</td>
-                    <td width="170">Actions</td>
-                </tr>
-            </thead>
-            <tbody>
-                {% for artist in artists %}
-                <tr>
-                    <td><a href="/artists/view?name={{ artist.name }}">{{ artist.name }}</a></td>
-                    <td>
-                        <a href="/artists/edit?id={{ artist.id }}" class="button">Edit</a>
-                        <a href="/artists/delete?id={{ artist.id }}" class="button alert">Remove</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="overflow">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td width="170">Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for artist in artists %}
+                    <tr>
+                        <td><a href="/artists/view?name={{ artist.name }}">{{ artist.name }}</a></td>
+                        <td>
+                            <a href="/artists/edit?id={{ artist.id }}" class="button">Edit</a>
+                            <a href="/artists/delete?id={{ artist.id }}" class="button alert">Remove</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
         {% if artists.has_other_pages %}
             <ul class="pagination" role="navigation" aria-label="Pagination">
                 

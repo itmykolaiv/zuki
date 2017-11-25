@@ -12,7 +12,7 @@ def index(request):
     
     rows = Artists.objects.all()
 
-    paginator = Paginator(rows, 2)
+    paginator = Paginator(rows, 10)
     # dictfetchall(cursor)
     page = request.GET.get('page', 1)
     p_rows = paginator.page(page)

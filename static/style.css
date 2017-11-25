@@ -7,6 +7,10 @@ body {
     background-repeat: no-repeat; 
     color: white;
 }
+body a {
+    color: #f0597d;
+    text-decoration: underline
+}
 table {
     border-collapse: collapse;
 }
@@ -38,6 +42,7 @@ table a {
 
 .top-bar a {
     border-bottom: 2px solid transparent;
+    text-decoration: none;
 }
 
 .top-bar, .top-bar ul ul {
@@ -49,7 +54,7 @@ table a {
     background-color: transparent;
 }
 
-.dropdown.menu > li.is-dropdown-submenu-parent > a::after {
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after, .is-accordion-submenu-parent>a:after {
     border-color: #fff transparent transparent;
 }
 
@@ -174,11 +179,79 @@ table .button {
 
 .button {
     background-color: #f0597d;
+    color: white;
     border-radius: 20px;
     border: 1px solid #f0597d;
+    text-decoration: none;
 }
 
 .button:hover {
     background-color: transparent;
     border-radius: 20px;
+}
+
+.pagination .current {
+    background-color: #f0597d;
+}
+
+.image {
+    text-align: center;
+    clear: both;
+}
+
+.image.image-style-side,
+.image.image-style-align-left,
+.image.image-style-align-center,
+.image.image-style-align-right {
+        max-width: 50%;
+}
+
+
+.image.image-style-side {
+    float: right;
+    margin-left: 5px;
+}
+
+.image.image-style-align-left {
+    float: left;
+    margin-right: 5px;
+}
+
+.image.image-style-align-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image.image-style-align-right {
+    float: right;
+    margin-left: 5px;
+}
+
+.image > img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+/*
+html, body {
+    height: 100%;
+    margin: 0;
+}
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -24px;
+}
+footer,
+.wrapper::after {
+    margin: 0;
+    content: "";
+    height: 24px;
+}
+*/
+.overflow {
+    overflow: auto;
+}
+
+.overflow table {
+    min-width: 500px;
 }
