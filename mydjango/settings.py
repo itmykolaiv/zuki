@@ -26,10 +26,9 @@ SECRET_KEY = 'n3&#()@s*j$i0e4%y4ftj%=(!o#l4==qoz@c)&wuo3si11o!^m'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'dbuzinov.pythonanywhere.com',
     '127.0.0.1',
-    'a9d9a999.ngrok.io',
-    'tranquil-inlet-42820.herokuapp.com'
+    'c13af99f.ngrok.io',
+    'zuki.itmykolaiv.pp.ua'
 ]
 
 
@@ -95,7 +94,8 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'music_store.sqlite3',
+        'NAME': 'C:/Users/Dima/Desktop/zukiApache/music_store.sqlite3',
+        #'NAME': 'music_store.sqlite3',
     }
 }
 
@@ -138,8 +138,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+#]
 
-#STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")

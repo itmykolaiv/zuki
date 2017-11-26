@@ -7,17 +7,21 @@
                 <thead>
                     <tr>
                         <td>Name</td>
+                        {% if user.is_authenticated %}
                         <td width="170">Actions</td>
+                        {% endif %}
                     </tr>
                 </thead>
                 <tbody>
                     {% for artist in artists %}
                     <tr>
                         <td><a href="/artists/view?name={{ artist.name }}">{{ artist.name }}</a></td>
+                        {% if user.is_authenticated %}
                         <td>
                             <a href="/artists/edit?id={{ artist.id }}" class="button">Edit</a>
                             <a href="/artists/delete?id={{ artist.id }}" class="button alert">Remove</a>
                         </td>
+                        {% endif %}
                     </tr>
                     {% endfor %}
                 </tbody>
