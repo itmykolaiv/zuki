@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'c13af99f.ngrok.io',
-    'zuki.itmykolaiv.pp.ua'
+    'zuki.itmykolaiv.pp.ua',
+    'tranquil-inlet-42820.herokuapp.com'
 ]
 
 
