@@ -95,8 +95,8 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'C:/Users/Dima/Desktop/zukiApache/music_store.sqlite3',
-        #'NAME': 'music_store.sqlite3',
+        #'NAME': 'C:/Users/Dima/Desktop/zukiApache/music_store.sqlite3',
+        'NAME': 'music_store.sqlite3',
     }
 }
 
